@@ -1,5 +1,5 @@
 module.exports = {
-	name: "SSG", // optional, falls back to object key
+	name: "ssg", // optional, falls back to object key
 	description: "Static Site Generator web sites",
 	// skip if localhost
 	// skip if this is a new fork of the speedlify (not Zach’s)
