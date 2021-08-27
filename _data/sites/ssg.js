@@ -16,5 +16,10 @@ module.exports = {
 		"https://www.11ty.dev/",
 		"https://nuxtjs.org/",
 		"https://gridsome.org/",
+	],
+	seodescription: [
+		"Names11Ty",
+		"namesNuxt",
+		"namesGridsome",
 	]
 };
