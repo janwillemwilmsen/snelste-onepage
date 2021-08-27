@@ -1,6 +1,19 @@
+json = 
+[
+	{
+		seodescription:"fcb.com",
+	  url:"https://fcbarcelona.com/",
+	},	
+	{
+		seodescription:"psg.fr",
+	  url:"https://psg.fr/",
+	}
+]
+
+
 module.exports = {
-	name: "ssg", // optional, falls back to object key
-	description: "Static Site Generator web sites",
+	name: "football", // optional, falls back to object key
+	description: "Socces web sites",
 	// skip if localhost
 	// skip if this is a new fork of the speedlify (not Zach’s)
 	skip: false, // !process.env.CONTEXT || process.env.SITE_NAME !== "speedlify",
@@ -12,19 +25,6 @@ module.exports = {
 		// Use "site" if sites are all on the same origin and share assets.
 		freshChrome: "run"
 	},
-	urls: [
-		"https://www.11ty.dev/",
-		"https://nuxtjs.org/",
-		"https://gridsome.org/",
-	],
-	slugs: [
-		"Names11Ty",
-		"namesNuxt",
-		"namesGridsome",
-	],
-	names: [
-		"Names11Ty",
-		"namesNuxt",
-		"namesGridsome",
-	]
+	urls: json.map(el=>el.url),
+	seodescription: json.map(el=>el.seodescription),
 };

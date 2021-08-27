@@ -209,12 +209,37 @@ module.exports = function(eleventyConfig) {
 		return arr;
 	}
 
+	// eleventyConfig.addFilter("getSites", (results, sites, vertical, skipKeys = []) => {
+	// 	let urls = sites[vertical].urls;
+	// 	let isIsolated = sites[vertical].options && sites[vertical].options.isolated === true;
+	// 	let prunedResults = isIsolated ? results[vertical] : results;
+	// 	return filterResultsToUrls(prunedResults, urls, skipKeys);
+	// });
+
+
 	eleventyConfig.addFilter("getSites", (results, sites, vertical, skipKeys = []) => {
 		let urls = sites[vertical].urls;
+		let slugs = {}
+		let names = {}
+		urls.forEach((url,i)=>{
+			if(sites[vertical].slugs) slugs[url]=sites[vertical].slugs[i]
+			if(sites[vertical].names) names[url]=sites[vertical].names[i]
+		})
 		let isIsolated = sites[vertical].options && sites[vertical].options.isolated === true;
 		let prunedResults = isIsolated ? results[vertical] : results;
-		return filterResultsToUrls(prunedResults, urls, skipKeys);
+		let output = filterResultsToUrls(prunedResults, urls, skipKeys)
+		output.forEach((item,i)=>{
+			Object.keys(item).forEach(key=>{
+				slug = slugs[item[key].requestedUrl]
+				name = names[item[key].requestedUrl]
+				if (slug) item[key].slug=slug
+				if (name) item[key].name=name
+			})
+
+		})
+		return output;
 	});
+
 
 	// Deprecated, use `getSites` instead, it works with isolated categories
 	eleventyConfig.addFilter("filterToUrls", filterResultsToUrls);

@@ -36,7 +36,7 @@ eleventyComputed:
 		</thead>
 		<tbody>
 		{%- set showRank = true %}
-		{%- for site in results | getSites(sites, vertical, isolatedKeys) | sortCumulativeScore %}
+		{%- for site in results | getSites(sites, vertical, isolatedKeys, seodescription ) | sortCumulativeScore %}
 			{%- set newestKey = site | getObjectKey(":newest") %}
 			{%- set key = site | getObjectKey %}
 			{%- set hundos = 0 %}
@@ -56,7 +56,7 @@ eleventyComputed:
 
 			{# 		{{ site[newestKey].seodescription }}  DOES NOT WORK when using within the following HTML :  #}
 				<td class="leaderboard-url">
-					<a href="{{ site[newestKey].url }}"><code class="url">{{ site[newestKey].url | displayUrl(hasRedirect) }} - {{ site[newestKey].seodescription }}</code></a>
+					<a href="{{ site[newestKey].url }}"><code class="url">{{ site[newestKey].url | displayUrl(hasRedirect) }} - {{ site[newestKey].name | displayUrl(hasRedirect) }}</code></a>
 					{%- if hasRedirect %}<span class="leaderboard-redirect-warn">Redirect from <code class="url">{{ site[newestKey].requestedUrl | displayUrl(true) }}</code></span>{% endif -%}
 					{%- if site[newestKey].error %}<span class="leaderboard-redirect-error">Error</span>{% endif -%}
 				</td>
