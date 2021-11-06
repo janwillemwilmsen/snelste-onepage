@@ -6,9 +6,12 @@ const fetch = require("node-fetch");
 const fastglob = require("fast-glob");
 const PerfLeaderboard = require("performance-leaderboard");
 
+
+// Meerdere runs zorgen voor betere meting. Duurt wel langer. 2 of 3 runs is ideaal
 const NUMBER_OF_RUNS = 1;
+
 const FREQUENCY = 60; // in minutes
-const NETLIFY_MAX_LIMIT = 15; // in minutes, netlify limit
+const NETLIFY_MAX_LIMIT = 15; // in minutes, netlify limit - Wordt niet gebruikt bij Vercel
 const ESTIMATED_MAX_TIME_PER_TEST = 0.75; // in minutes, estimate based on looking at past builds
 
 const prettyTime = (seconds) => {

@@ -1,10 +1,25 @@
 name: Run speedlify
 
 on:
+# PUSH en WORKFLOW_DISPATCH uitschakelen (door # ervoor te plaatsen ) als je geen automatische update van de scan wil triggeren bij pushen van code naar Github.
   push:
   workflow_dispatch:
   schedule:
+  # CRON JOB TIJDEN : Minuut Uur DagVanDeMaand(1 - 31) Maand(1 - 12) DagVanDeWeek(0 - 6)
+  # elke dag om 23.00 uur UTC (Universal Time, in NL 24.00 of 01.00 uur.)
     - cron: "0 23 * * *"
+  
+  # Elke dag om 12 UTC
+  #  - cron: "0 12 * * *"
+
+  # Elke maandag om 13.00 uur UTC
+  #  - cron: "0 13 * * 1"
+
+  # Elke eerste dag van de maand
+  #  - cron: "0 0 1 * *"
+
+  # Elke werkdag om 15.15 UTC 
+  #  - cron: "15 15 * * 1-5"
 
 jobs:
   run-tests:

@@ -18,13 +18,18 @@ module.exports = {
 		"https://gridsome.org/",
 	],
 	slugs: [
-		"Names11Ty",
-		"namesNuxt",
-		"namesGridsome",
+		"SLUGs11Ty",
+		"SLUGNuxt",
+		"SLUGridsome",
 	],
-	names: [
-		"Names11Ty",
-		"namesNuxt",
-		"namesGridsome",
+	seodescriptions: [
+		"SEOEleventy",
+		"SEONuxtNuxt",
+		"SEOGridgrid",
+	],
+	metadescriptions: [
+		"Metaleventy",
+		"MetaNuxtNuxt",
+		"MetaGridgrid",
 	]
 };

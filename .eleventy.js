@@ -220,10 +220,12 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addFilter("getSites", (results, sites, vertical, skipKeys = []) => {
 		let urls = sites[vertical].urls;
 		let slugs = {}
-		let names = {}
+		let metadescriptions = {}
+		let seodescriptions = {}
 		urls.forEach((url,i)=>{
 			if(sites[vertical].slugs) slugs[url]=sites[vertical].slugs[i]
-			if(sites[vertical].names) names[url]=sites[vertical].names[i]
+			if(sites[vertical].metadescriptions) metadescriptions[url]=sites[vertical].metadescriptions[i]
+			if(sites[vertical].seodescriptions) seodescriptions[url]=sites[vertical].seodescriptions[i]
 		})
 		let isIsolated = sites[vertical].options && sites[vertical].options.isolated === true;
 		let prunedResults = isIsolated ? results[vertical] : results;
@@ -231,9 +233,11 @@ module.exports = function(eleventyConfig) {
 		output.forEach((item,i)=>{
 			Object.keys(item).forEach(key=>{
 				slug = slugs[item[key].requestedUrl]
-				name = names[item[key].requestedUrl]
+				metadescription = metadescriptions[item[key].requestedUrl]
+				seodescription = seodescriptions[item[key].requestedUrl]
 				if (slug) item[key].slug=slug
-				if (name) item[key].name=name
+				if (metadescription) item[key].name=metadescription
+				if (seodescription) item[key].name=seodescription
 			})
 
 		})
