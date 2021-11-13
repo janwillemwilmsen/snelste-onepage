@@ -76,6 +76,7 @@ module.exports = function(eleventyConfig) {
 
 		// swDest: "./build/sw.js",
 		// globDirectory: "./build"
+		// swSrc: ["./swjw.js"]
 	  });
 
 	eleventyConfig.addFilter("shortHash", shortHash);
@@ -357,6 +358,7 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addPassthroughCopy({
 			"./assets/bg.svg": "bg.svg",
 			"./assets/icons": "icons",
+			"./assets/swjw.js": "swjw.js",
 			});
 
 

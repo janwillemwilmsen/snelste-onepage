@@ -1,6 +1,8 @@
 {
-    "name": "process.env.npm_package_name",
+    "name": "Snelste.nl",
     "short_name": "Snelste.nl",
+    "description": "Monitor website urls",
+    "start_url": "/?standalone=true",
     "icons": [
         {
             "src": "/icons/favicon-16x16.png",
@@ -10,7 +12,8 @@
         {
             "src": "/icons/favicon-32x32.png",
             "sizes": "32x32",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         },
         {
             "src": "/icons/android-chrome-36x36.png",
@@ -75,6 +78,5 @@
     ],
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
-    "start_url": "/",
     "display": "standalone"
 }

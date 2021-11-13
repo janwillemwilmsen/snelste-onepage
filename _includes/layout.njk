@@ -8,38 +8,10 @@
 		<title>{{ sites.urls.seotitle }}</title>
 		<meta name="description" content="{{ sites.urls.metadescription }}">
 		<link rel="stylesheet" href="{{ '/style.css' | url }}">
-		<script>
-				document.documentElement.classList.add("js");
-		</script>
-		<script>
-			if ("serviceWorker" in navigator)
-				navigator.serviceWorker.register("/service-worker.js");
-		</script>
- 		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-T5VM9W7');</script>
-
-		<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
-		<link rel="manifest" href="/icons/site.webmanifest">
-		<link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5">
-		<link rel="shortcut icon" href="/icons/favicon.ico">
-		<meta name="msapplication-TileColor" content="#ffc40d">
-		<meta name="msapplication-config" content="/icons/browserconfig.xml">
-		<meta name="theme-color" content="#ffffff">
-		<link href="/icons/splashscreens/iphone6_splash.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-		<link href="/icons/splashscreens/iphoneplus_splash.png" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
-		<link href="/icons/splashscreens/iphonex_splash.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
-		<link href="/icons/splashscreens/iphonexr_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-		<link href="/icons/splashscreens/iphonexsmax_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
-		<link href="/icons/splashscreens/ipad_splash.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-		<link href="/icons/splashscreens/ipadpro1_splash.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-		<link href="/icons/splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-		<link href="/icons/splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-	</head>
+	
+	 
+		{% include "headerstuff.njk" %}
+		</head>
 	<body>
 	
 	<header>
@@ -71,6 +43,25 @@
 			MIT licensed.  Created by <a href="https://www.zachleat.com/">@zachleat</a>, modified by <a href="https://www.snelste.nl/">@SnelsteNL</a>.
 			<br>
 			<br>
+			<pwa-install
+			showopen="true" 
+			 manifestpath="/icons/site.webmanifest"
+			 installbuttontext="Installeer"
+			 explainer="Deze website kan geinstalleerd worden op het beginscherm van je telefoon, laptop of computer.  Je kan hem ook verwijderen als je hem niet meer gebruikt. Belangrijk: We gebruiken geen data van jouw telefoon en slaan geen prive gegevens op." 
+			 featuresheader="Eigenschappen" 
+			 descriptionheader="" 
+			 iosinstallinfotext="Op Iphone of Ipad werkt dit niet goed. Klik in de taakbalk op vierkantje met pijl naar boven en kies 'Zet op beginscherm'"
+			 > <svg class="" viewBox="0 0 20 20">
+                              <path fill="none" d="M13.68,9.448h-3.128V6.319c0-0.304-0.248-0.551-0.552-0.551S9.448,6.015,9.448,6.319v3.129H6.319
+                                c-0.304,0-0.551,0.247-0.551,0.551s0.247,0.551,0.551,0.551h3.129v3.129c0,0.305,0.248,0.551,0.552,0.551s0.552-0.246,0.552-0.551
+                                v-3.129h3.128c0.305,0,0.552-0.247,0.552-0.551S13.984,9.448,13.68,9.448z M10,0.968c-4.987,0-9.031,4.043-9.031,9.031
+                                c0,4.989,4.044,9.032,9.031,9.032c4.988,0,9.031-4.043,9.031-9.032C19.031,5.012,14.988,0.968,10,0.968z M10,17.902
+                                c-4.364,0-7.902-3.539-7.902-7.903c0-4.365,3.538-7.902,7.902-7.902S17.902,5.635,17.902,10C17.902,14.363,14.364,17.902,10,17.902
+                                z"></path>
+                            </svg>
+							Installeer mij
+			</pwa-install>
+
 		</footer>
 
 		<script defer src="{{ '/chartist.js' | url }}"></script>
