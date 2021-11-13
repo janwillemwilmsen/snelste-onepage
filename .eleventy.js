@@ -3,6 +3,8 @@ const shortHash = require("short-hash");
 const lodash = require("lodash");
 const getObjectKey = require("./utils/getObjectKey.js");
 const calc = require("./utils/calc.js");
+const pluginPWA = require("eleventy-plugin-pwa");
+
 
 function hasUrl(urls, requestedUrl) {
 	// urls comes from sites[vertical].urls, all requestedUrls (may not include trailing slash)
@@ -66,6 +68,16 @@ function getLighthouseTotal(entry) {
 }
 
 module.exports = function(eleventyConfig) {
+
+	eleventyConfig.addPlugin(pluginPWA, {
+		globPatterns: [
+			"**/*.{html}"
+		  ],
+
+		// swDest: "./build/sw.js",
+		// globDirectory: "./build"
+	  });
+
 	eleventyConfig.addFilter("shortHash", shortHash);
 
 	eleventyConfig.addFilter("repeat", function(str, times) {
@@ -342,10 +354,13 @@ module.exports = function(eleventyConfig) {
 		"./node_modules/chartist/dist/chartist.css.map": "chartist.css.map",
 		
 	});
-	eleventyConfig.addPassthroughCopy("/assets/bg.svg");
+	eleventyConfig.addPassthroughCopy({
+			"./assets/bg.svg": "bg.svg",
+			"./assets/icons": "icons",
+			});
 
 
-	eleventyConfig.addWatchTarget("./assets/");
+	// eleventyConfig.addWatchTarget("./assets/");
 
 	eleventyConfig.setBrowserSyncConfig({
 		ui: false,

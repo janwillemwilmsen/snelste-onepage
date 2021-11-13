@@ -5,7 +5,7 @@ html {
 }
 body {
 	font-family: system-ui, sans-serif;
-	background-color: #151518;
+	background-color: {{ sites.urls.backgroundColor }};
 	color: #fff;
 	margin: 0; 
 	padding:0;

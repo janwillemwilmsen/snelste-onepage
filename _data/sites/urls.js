@@ -1,7 +1,10 @@
 module.exports = {
 	name: "Demo dashboard", // optional, falls back to object key
 	description: "Demo Sitespeed en accessibility dashboard",
-
+	seotitle: "Demo dashboard",
+	metadescription: "Demo Sitespeed en accessibility dashboard, benchmark web pages over time.",
+	footertxt: "INFO:<br> Tuned by ",
+	backgroundColor: "#151518",
 	// LOGO 
 	// logo: "https://eon-speedlify.vercel.app/assets/img/logo.svg",
 	logo: "https://cdn.vattenfall.nl/vattenfallnlprd/11.1.40/assets/images/logo-vattenfall.svg",
@@ -11,10 +14,11 @@ module.exports = {
 	paddingLogo: "10px",
 	borderRadius: "50%",
 	
-	// BACKGROUND IMAGES. Als er geen 'small' ingesteld is dan wordt teruggevallen op de grote, als er geen afbeelding staat dan normale achtergrondkleur.
-	headerBackgroundImageSmall: "/assets/bg.svg",
-	headerBackgroundImage: "https://www.vattenfall.nl/media/_homepage-nieuw/vattenfall-disrupt-man-zit-op-strand-fossielvrij-binnen-een-generatie.jpg?width=2048",
-	// flip, roteer achtergrondafbeelding horizontaal. Waarde : 1 of -1
+	// BACKGROUND IMAGES. headerBackgroundImage is used of mobile and desktop when configured. If Small is configured this image is used on mobile. No images gives background color. 
+	headerBackgroundImageSmall: "/bg.svg",
+	headerBackgroundImage: "/bg.svg",
+	// headerBackgroundImage: "https://www.vattenfall.nl/media/_homepage-nieuw/vattenfall-disrupt-man-zit-op-strand-fossielvrij-binnen-een-generatie.jpg?width=2048",
+	// Rotate background image horizontal.  1 or -1
 	flipBackgroundImage: "-1",
 	
 	// HEADER HIGHT:
