@@ -9,24 +9,32 @@
 		<script>
 		document.documentElement.classList.add("js");
 		</script>
-		<!-- Google Tag Manager -->
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+ 		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 		})(window,document,'script','dataLayer','GTM-T5VM9W7');</script>
-		<!-- End Google Tag Manager -->
 	</head>
 	<body>
-	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5VM9W7"
-	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
-		<h1 class="speedlify-hed"><a href="{{ '/' | url }}">speedlifyOnePage</a>{% if vertical %}:{{ vertical }}{% endif %}</h1>
-		
-		
-		 
+	
+ 	{# <header style="height:250px;background: url(/assets/bg.svg); background-size:cover; margin:0px; padding:0px; margin-top:0px;"> #}
+<header>
+	 <div class="headerrow"  style="position: relative;   height: {{ sites.urls.backgroundhight }}; background-size:cover; margin:0px; padding:0px; margin-top:0px; ">
+	 </div>
 
+
+	<div class="text" style="position: absolute; top: 40px;  left: 10%;">
+			<div class='row' style="display:flex; align-items:center; justify-content:center;gap: 30px;  ">
+					<div class='column'><img src="{{ sites.urls.logo }}" class="dashboardlogo"></div>
+					<div class='column'><h1 class="speedlify-hed"><a href="{{ '/' | url }}"> {{ sites.urls.name }}  </a></h1></div>
+			</div>
+			
+			<p class="speedlify-subhed">
+				{{ sites.urls.description }}<br>
+			</p>
+	</div>
+	
+ </header>
 
 		
 		{{ content | safe }}
@@ -38,6 +46,7 @@
 		<script defer src="{{ '/chartist.js' | url }}"></script>
 		<script defer src="{{ '/script.js' | url }}"></script>
 		<script defer src="https://www.snelste.nl/snelste.js"></script>
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5VM9W7"	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 		
 	</body>
