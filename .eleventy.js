@@ -356,6 +356,7 @@ module.exports = function(eleventyConfig) {
 		
 	});
 	eleventyConfig.addPassthroughCopy({
+			"./assets/bg.png": "bg.png",
 			"./assets/bg.svg": "bg.svg",
 			"./assets/icons": "icons",
 			"./assets/swjw.js": "swjw.js",

@@ -13,13 +13,18 @@ module.exports = {
 	logoBackgroundColor: "white",
 	paddingLogo: "10px",
 	borderRadius: "50%",
-	
+	// HIDE LOGO : none inline block 
+	logoHidden: 'inline',
+
 	// BACKGROUND IMAGES. headerBackgroundImage is used of mobile and desktop when configured. If Small is configured this image is used on mobile. No images gives background color. 
-	headerBackgroundImageSmall: "/bg.svg",
+	// https://svgwave.in/
+	// headerBackgroundImageSmall: "/bg.png",
+	// headerBackgroundImageSmall: "https://www.essent.nl/content/Images/219862_isolatie-huis.jpg",
+	flipBackgroundImageMobile: "1",
 	headerBackgroundImage: "/bg.svg",
 	// headerBackgroundImage: "https://www.vattenfall.nl/media/_homepage-nieuw/vattenfall-disrupt-man-zit-op-strand-fossielvrij-binnen-een-generatie.jpg?width=2048",
 	// Rotate background image horizontal.  1 or -1
-	flipBackgroundImage: "-1",
+	flipBackgroundImageDesktop: "-1",
 	
 	// HEADER HIGHT:
 	backgroundhight: "400px",
@@ -28,6 +33,9 @@ module.exports = {
 	// FADE ON TOP OF BACKGROUND IMAGE. From, To. RGBA colorcodes. Last numer is level of transparancy. 1 = fully covered 0 = transparant. Use 0.8 0.6 0.5 etcetera. 
 	fadecolorFrom: '21,21,24,0.9',
 	fadecolorTo: '21,21,24,0',
+
+	titleTextColor: "",
+	titleStyle: "italic",  // normal italic
 
 
 	// skip if localhost
