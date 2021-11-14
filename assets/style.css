@@ -22,8 +22,8 @@ body {
 
 @media (max-width: 37.5em) { /* 600px */
 	.headerrow {
-		background: linear-gradient( rgba({{ sites.urls.fadecolorTo }}), 
-		rgba({{ sites.urls.fadecolorFrom }}) ), 
+		/* background: linear-gradient( rgba({{ sites.urls.fadecolorTo }}),  */
+		/* rgba({{ sites.urls.fadecolorFrom }}) ),  */
 		url({{ sites.urls.headerBackgroundImageSmall }}), 
 		url({{ sites.urls.headerBackgroundImage }}
 		); 
@@ -32,12 +32,14 @@ body {
 	.row {padding-top:80px;}
 }
 
+
+/* Tablet Desktop */ 
 @media (min-width: 37.5em) { /* 600px */
 
 
 	.headerrow {
-		/* background: linear-gradient( rgba({{ sites.urls.fadecolorTo }}),  */
-		/* rgba({{ sites.urls.fadecolorFrom }}) ),  */
+		background: linear-gradient( rgba({{ sites.urls.fadecolorTo }}), 
+		rgba({{ sites.urls.fadecolorFrom }}) ), 
 		url({{ sites.urls.headerBackgroundImage }}); 
 		-webkit-transform:scaleX({{  sites.urls.flipBackgroundImage }});
 		-moz-transform:scaleX( sites.urls.flipBackgroundImage );
