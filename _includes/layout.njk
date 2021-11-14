@@ -8,7 +8,9 @@
 		<title>{{ sites.urls.seotitle }}</title>
 		<meta name="description" content="{{ sites.urls.metadescription }}">
 		<link rel="stylesheet" href="{{ '/style.css' | url }}">
-	
+	 	<script>
+		document.documentElement.classList.add("js");
+		</script>
 	 
 		{% include "headerstuff.njk" %}
 		</head>
@@ -43,8 +45,10 @@
 			MIT licensed.  Created by <a href="https://www.zachleat.com/">@zachleat</a>, modified by <a href="https://www.snelste.nl/">@SnelsteNL</a>.
 			<br>
 			<br>
+			<div id="installContainer" class="ID niet verwijderen hidden">
 			<pwa-install
-			showopen="true" 
+			id="butInstall"
+			showopen="false" 
 			 manifestpath="/icons/site.webmanifest"
 			 installbuttontext="Installeer"
 			 explainer="Deze website kan geinstalleerd worden op het beginscherm van je telefoon, laptop of computer.  Je kan hem ook verwijderen als je hem niet meer gebruikt. Belangrijk: We gebruiken geen data van jouw telefoon en slaan geen prive gegevens op." 
@@ -61,7 +65,7 @@
                             </svg>
 							Installeer mij
 			</pwa-install>
-
+			</div>
 		</footer>
 
 		<script defer src="{{ '/chartist.js' | url }}"></script>
