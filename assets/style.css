@@ -2,7 +2,21 @@ html {
 	overflow-x: hidden;
 	margin: 0;
 	padding:0;
+  
 }
+::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+scrollbar-width: thin;
+background: gray;
+border-radius: 5px;
+scrollbar-color: white #e0e0e0;
+
+}
+
 body {
 	font-family: system-ui, sans-serif;
 	background-color: {{ sites.urls.backgroundColor }};
@@ -10,6 +24,8 @@ body {
 	margin: 0; 
 	padding:0;
 	margin-top:-32px;
+
+
 }
 
 .dashboardlogo {
@@ -20,17 +36,33 @@ body {
 	border-radius: {{ sites.urls.borderRadius }};
 }
 
+.headerrow {position: relative;}
 
-.headerrow {
+.headerrow:after {
+	content: "";
+	position: absolute;
+	width:100%;
+	top: 0;
+	z-index: -1;
+	height:{{ sites.urls.backgroundhight }};
 	background: linear-gradient( rgba({{ sites.urls.fadecolorTo }}), 
 	rgba({{ sites.urls.fadecolorFrom }}) ), 
-	url({{ sites.urls.headerBackgroundImage }})
-	;}
+	url({{ sites.urls.headerBackgroundImage }});
+	min-height: {{ sites.urls.backgroundhight }}; background-position:  center 0%; background-size:cover; margin:0px; padding:0px; margin-top:0px;
+}
 
+.headerrow > * {
+    z-index: 100 !important;
+}
 
 /* Tablet Desktop */ 
 @media screen and (min-width: 37.5em) {  
-	.headerrow {
+	.headerrow:after {
+		content: "";
+		position: absolute;
+		width:100%;
+		top: 0;
+		height:{{ sites.urls.backgroundhight }};
 		background: linear-gradient( rgba({{ sites.urls.fadecolorTo }}), 
 		rgba({{ sites.urls.fadecolorFrom }}) ), 
 		url({{ sites.urls.headerBackgroundImage }}); 
@@ -39,17 +71,26 @@ body {
 		-ms-transform:scaleX( {{ sites.urls.flipBackgroundImageDesktop}} );
 		-o-transform:scaleX( {{ sites.urls.flipBackgroundImageDesktop}} );
 		transform:scaleX( {{ sites.urls.flipBackgroundImageDesktop}} );
+		min-height: {{ sites.urls.backgroundhight }}; background-position:  center 0%; background-size:cover; margin:0px; padding:0px; margin-top:0px;
 	}
 			
 	.row {padding-top:80px;}
 	.row{flex-direction: row;gap: 30px;}
+	/* .text { top: 40px;  left: 10%;} */
+	.text { top: 40px;  }
+
 }
 
 
 
 /* Mobile */
  @media screen and (max-width: 37.5em) { 
-	.headerrow {
+	.headerrow:after {
+		content: "";
+		position: absolute;
+		width:100%;	
+		top: 0;
+		height:{{ sites.urls.backgroundhight }};
 		background: linear-gradient( rgba({{ sites.urls.fadecolorTo }}), 
 		rgba({{ sites.urls.fadecolorFrom }}) ), 
 		url({{ sites.urls.headerBackgroundImageSmall }}),
@@ -59,14 +100,44 @@ body {
 		-ms-transform:scaleX( {{ sites.urls.flipBackgroundImageMobile}} );
 		-o-transform:scaleX( {{ sites.urls.flipBackgroundImageMobile}} );
 		transform:scaleX( {{ sites.urls.flipBackgroundImageMobile}} );
+		min-height: {{ sites.urls.backgroundhight }}; background-position:  center 0%; background-size:cover; margin:0px; padding:0px; margin-top:0px;
 		}
 
 	.row {padding-top:20px;}
 
 	.row{flex-direction: column;gap: 10px;}
+
+	.text { width:100%;   top: 40px;  margin:auto;}
+
 } 
 
+/*start PWA button */
+pwa-install::part(openButton) {
+	background: darkorange;
+	width: 180px;
+	border-radius: 15px;
+	font-size: 15px;
+	color: white;
+  }
+  
+  .svg-icon {
+	width: 2em;
+	height: 2em;
+	margin-right: 8px;
+  }
+  
+  .svg-icon path,
+  .svg-icon polygon,
+  .svg-icon rect {
+	fill: white; 
+  }
+  
+  .svg-icon circle {
+	stroke: white;
+	stroke-width: 1;
+  }
 
+  /*end PWA button */
 					
 
 footer {

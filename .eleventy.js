@@ -3,7 +3,7 @@ const shortHash = require("short-hash");
 const lodash = require("lodash");
 const getObjectKey = require("./utils/getObjectKey.js");
 const calc = require("./utils/calc.js");
-const pluginPWA = require("eleventy-plugin-pwa");
+// const pluginPWA = require("eleventy-plugin-pwa");
 
 
 function hasUrl(urls, requestedUrl) {
@@ -69,18 +69,18 @@ function getLighthouseTotal(entry) {
 
 module.exports = function(eleventyConfig) {
 
-	eleventyConfig.addPlugin(pluginPWA, {
-		globPatterns: [
-			"**/*.{html}"
-		  ],
+	// eleventyConfig.addPlugin(pluginPWA, {
+	// 	globPatterns: [
+	// 		"**/*.{html}"
+	// 	  ],
 
-		// swDest: "./build/sw.js",
-		// globDirectory: "./build"
-		// swSrc: ["./swjw.js"]
-	  });
+	// 	// swDest: "./build/sw.js",
+	// 	// globDirectory: "./build"
+	// 	// swSrc: ["./swjw.js"]
+	//   });
 
 	eleventyConfig.addFilter("shortHash", shortHash);
-
+ 
 	eleventyConfig.addFilter("repeat", function(str, times) {
 		let result = '';
 
@@ -222,40 +222,42 @@ module.exports = function(eleventyConfig) {
 		return arr;
 	}
 
-	// eleventyConfig.addFilter("getSites", (results, sites, vertical, skipKeys = []) => {
-	// 	let urls = sites[vertical].urls;
-	// 	let isIsolated = sites[vertical].options && sites[vertical].options.isolated === true;
-	// 	let prunedResults = isIsolated ? results[vertical] : results;
-	// 	return filterResultsToUrls(prunedResults, urls, skipKeys);
-	// });
-
-
 	eleventyConfig.addFilter("getSites", (results, sites, vertical, skipKeys = []) => {
 		let urls = sites[vertical].urls;
-		let slugs = {}
-		let metadescriptions = {}
-		let seodescriptions = {}
-		urls.forEach((url,i)=>{
-			if(sites[vertical].slugs) slugs[url]=sites[vertical].slugs[i]
-			if(sites[vertical].metadescriptions) metadescriptions[url]=sites[vertical].metadescriptions[i]
-			if(sites[vertical].seodescriptions) seodescriptions[url]=sites[vertical].seodescriptions[i]
-		})
 		let isIsolated = sites[vertical].options && sites[vertical].options.isolated === true;
 		let prunedResults = isIsolated ? results[vertical] : results;
-		let output = filterResultsToUrls(prunedResults, urls, skipKeys)
-		output.forEach((item,i)=>{
-			Object.keys(item).forEach(key=>{
-				slug = slugs[item[key].requestedUrl]
-				metadescription = metadescriptions[item[key].requestedUrl]
-				seodescription = seodescriptions[item[key].requestedUrl]
-				if (slug) item[key].slug=slug
-				if (metadescription) item[key].name=metadescription
-				if (seodescription) item[key].name=seodescription
-			})
-
-		})
-		return output;
+		return filterResultsToUrls(prunedResults, urls, skipKeys);
 	});
+
+
+	// eleventyConfig.addFilter("getSites", (results, sites, vertical, skipKeys = []) => {
+	// 	let urls = sites[vertical].urls;
+	// 	let slugs = {}
+	// 	// let metadescriptions = {}
+	// 	// let seodescriptions = {}
+	// 	let metadescriptions = sites[vertical].metadescriptions;
+	// 	let seodescriptions = sites[vertical].seodescriptions;
+	// 	urls.forEach((url,i)=>{
+	// 		if(sites[vertical].slugs) 				slugs[url]=sites[vertical].slugs[i]
+	// 		if(sites[vertical].metadescriptions) 	metadescriptions[url]=sites[vertical].metadescriptions[i]
+	// 		if(sites[vertical].seodescriptions) 	seodescriptions[url]=sites[vertical].seodescriptions[i]
+	// 	})
+	// 	let isIsolated = sites[vertical].options && sites[vertical].options.isolated === true;
+	// 	let prunedResults = isIsolated ? results[vertical] : results;
+	// 	let output = filterResultsToUrls(prunedResults, urls, skipKeys)
+	// 	output.forEach((item,i)=>{
+	// 		Object.keys(item).forEach(key=>{
+	// 			slug =            slugs[item[key].requestedUrl]
+	// 			metadescription = metadescriptions[item[key].requestedUrl]
+	// 			seodescription =  seodescriptions[item[key].requestedUrl]
+	// 			if (slug) item[key].slug=slug
+	// 			if (metadescription) item[key].name=metadescription
+	// 			if (seodescription)  item[key].name=seodescription
+	// 		})
+
+	// 	})
+	// 	return output;
+	// });
 
 
 	// Deprecated, use `getSites` instead, it works with isolated categories

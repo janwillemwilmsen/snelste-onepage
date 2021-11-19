@@ -18,55 +18,67 @@
 	
 	<header>
 		
-		<div class="headerrow"  style="position: relative;   height: {{ sites.urls.backgroundhight }}; background-size:cover; margin:0px; padding:0px; margin-top:0px; ">
-		</div>
+ 		{# <div class="headerrow"  style="position: relative; display:block; z-index:-1; min-height: {{ sites.urls.backgroundhight }}; background-position:  center 0%; background-size:cover; margin:0px; padding:0px; margin-top:0px; "> #}
+ 		<div class="headerrow"  style="   ">
+	
 
 
-		<div class="text" style="position: absolute; top: 40px;  left: 10%;">
-				<div class='row' style="display:flex; align-items:center; justify-content:center; ">
+ 		{# <div class="text" style="position: absolute; width:100%; margin: 0 auto;"> #}
+ 		<div class="text" style="  width:100%; margin: 0 auto;">
+				<div class='row' style="display:flex; align-items:center; justify-content:center;    ">
 						<div class='column'><img src="{{ sites.urls.logo }}" class="dashboardlogo" style="display:{{sites.urls.logoHidden}};"></div>
-						<div class='column'><h1 class="speedlify-hed"><a href="{{ '/' | url }}"> {{ sites.urls.name }}  </a></h1></div>
+						<div class='column text-header' style="width:50%"><h1 class="speedlify-hed"><a href="{{ '/' | url }}"> {{ sites.urls.name }} cv   </a></h1></div>
 				</div>
 				
-				<p class="speedlify-subhed">
-					{{ sites.urls.description }}<br>
-				</p>
+				
 		</div>
-		
+	
+		<div class="text-description" style="   max-width:60%; margin: 0 auto ; font-size: 1rem; line-height: 1.75;">
+					{{ sites.urls.description  | safe  }}<br>
+		</div>
+
+	</div>
+
+
 	</header>
 
 		
 		{{ content | safe }}
 
-		<footer>
-		<p class="footertxt">
+
+ 
+
+		<footer  style="border-top: 1px solid #444;">
+		<p class="footertxt" style="background:#232426;">
 				{{ sites.urls.footertxt | safe }}<br>
 		</p>
- 
-			MIT licensed.  Created by <a href="https://www.zachleat.com/">@zachleat</a>, modified by <a href="https://www.snelste.nl/">@SnelsteNL</a>.
+		
 			<br>
 			<br>
 			<div id="installContainer" class="ID niet verwijderen hidden">
+			{# <div style="border-radius:25px; display:inline; padding:10px; background:red;"> #}
 			<pwa-install
-			id="butInstall"
-			showopen="false" 
+			 id="butInstall"
+			 class="leaderboard-hide-sm"
+			 
+			 showopen="false" 
 			 manifestpath="/icons/site.webmanifest"
 			 installbuttontext="Installeer"
-			 explainer="Deze website kan geinstalleerd worden op het beginscherm van je telefoon, laptop of computer.  Je kan hem ook verwijderen als je hem niet meer gebruikt. Belangrijk: We gebruiken geen data van jouw telefoon en slaan geen prive gegevens op." 
+			 explainer="Deze website kan geinstalleerd worden op het beginscherm van je telefoon, laptop of computer. Belangrijk: We gebruiken geen data van jouw telefoon en slaan geen prive gegevens op." 
 			 featuresheader="Eigenschappen" 
 			 descriptionheader="" 
 			 iosinstallinfotext="Op Iphone of Ipad werkt dit niet goed. Klik in de taakbalk op vierkantje met pijl naar boven en kies 'Zet op beginscherm'"
-			 > <svg class="" viewBox="0 0 20 20">
-                              <path fill="none" d="M13.68,9.448h-3.128V6.319c0-0.304-0.248-0.551-0.552-0.551S9.448,6.015,9.448,6.319v3.129H6.319
-                                c-0.304,0-0.551,0.247-0.551,0.551s0.247,0.551,0.551,0.551h3.129v3.129c0,0.305,0.248,0.551,0.552,0.551s0.552-0.246,0.552-0.551
-                                v-3.129h3.128c0.305,0,0.552-0.247,0.552-0.551S13.984,9.448,13.68,9.448z M10,0.968c-4.987,0-9.031,4.043-9.031,9.031
-                                c0,4.989,4.044,9.032,9.031,9.032c4.988,0,9.031-4.043,9.031-9.032C19.031,5.012,14.988,0.968,10,0.968z M10,17.902
-                                c-4.364,0-7.902-3.539-7.902-7.903c0-4.365,3.538-7.902,7.902-7.902S17.902,5.635,17.902,10C17.902,14.363,14.364,17.902,10,17.902
-                                z"></path>
-                            </svg>
+			 >  
 							Installeer mij
 			</pwa-install>
+			{# </div> #}
+			<br><br>
 			</div>
+
+			<p style="font-size: 0.8125em;">
+				MIT licensed.  Created by <a href="https://www.zachleat.com/">@zachleat</a>, modified by <a href="https://www.snelste.nl/">@SnelsteNL</a>.
+			</p>
+
 		</footer>
 
 		<script defer src="{{ '/chartist.js' | url }}"></script>

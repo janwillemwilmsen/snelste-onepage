@@ -50,14 +50,21 @@ eleventyComputed:
 				</td>
 				<td class="leaderboard-hide-md leaderboard-trophies">{% if hundos === 4 %}🏆{% endif %}{% if loop.index0 === 0 %}🥇{% elseif loop.index0 === 1 %}🥈{% elseif loop.index0 === 2 %}🥉{% endif %}</td>
 				{%- set hasRedirect = site[newestKey].requestedUrl and site[newestKey].url != site[newestKey].requestedUrl %}
-			
+
 
 			{# 		{{ site[newestKey].seodescription }}  DOES NOT WORK when using within the following HTML :  #}
 				<td class="leaderboard-url">
 					<a href="{{ site[newestKey].url }}">
-						<code class="url">{{ site[newestKey].url | displayUrl(hasRedirect) }} - Name:{{ site[newestKey].name | displayUrl(hasRedirect) }} Slug:{{ site[newestKey].slug }} Meta:{{ site[newestKey].metadescription }}</code> 
+						<code class="url">
+					
+					   {# {{ site[newestKey].url | displayUrl(hasRedirect) }}  #}
+						 {# {{ site[newestKey].name | displayUrl(hasRedirect) }}  #}
+						 {# {{ site[newestKey].slug }}  #}
+					 {{ site[newestKey].requestedUrl   }} 
+					 		hhiero
+ 						</code> 
 					</a>
-					{%- if hasRedirect %}<span class="leaderboard-redirect-warn">Redirect from <code class="url">{{ site[newestKey].requestedUrl | displayUrl(true) }}</code></span>{% endif -%}
+					{# {%- if hasRedirect %}<span class="leaderboard-redirect-warn">Redirect from <code class="url">{{ site[newestKey].requestedUrl | displayUrl(true) }}</code></span>{% endif -%} #}
 					{%- if site[newestKey].error %}<span class="leaderboard-redirect-error">Error</span>{% endif -%}
 				</td>
 			{%- if site[newestKey].error %}
@@ -216,6 +223,8 @@ eleventyComputed:
 		{%- endfor %}
 		</tbody>
 	</table><!-- /leaderboard -->
+
+
 	<dl class="category-stats">
 		<div class="category-stats-entry">
 			<dt>Performance</dt>
@@ -238,4 +247,8 @@ eleventyComputed:
 			<dd>{{ counts.perfect }}<span> / {{ counts.total }}</span></dd>
 		</div>
 	</dl>
+
+
+
+
 </div><!-- /leaderboard-wrapper -->
